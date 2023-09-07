@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://bi68vr5jibkla"]
+[gd_scene load_steps=5 format=3 uid="uid://bwo770lnxq8u4"]
+
+[ext_resource type="Texture2D" uid="uid://bx3nsaxwofxad" path="res://Assets/back.png" id="1_qm4n3"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="2_r3w16"]
+[ext_resource type="Texture2D" uid="uid://cc8a4wnnadim2" path="res://Assets/kenney_space-shooter-redux/PNG/playerShip1_blue.png" id="3_5wt5x"]
+[ext_resource type="PackedScene" uid="uid://chu1jaomphurk" path="res://laser.tscn" id="4_7ee40"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(552, 983)
+scale = Vector2(0.710937, 1.46484)
+texture = ExtResource("1_qm4n3")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(145, 1550)
+script = ExtResource("2_r3w16")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_5wt5x")
+metadata/_edit_lock_ = true
+
+[node name="Laser" parent="." instance=ExtResource("4_7ee40")]
