@@ -1,7 +1,9 @@
-extends Node2D
+extends Node
 
-var speed = 1000
-var damage = 10
+var health = 20
+var score = 0
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,10 +11,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y -= speed * delta
+	pass
 
+func update_score(s):
+	score += s
 
-func _on_area_2d_body_entered(body):
-	if body.has_method("damage") and not body.is_in_group("Player"):
-		body.damage(damage)
-		queue_free()
+func reset_values():
+	health = 20
+	score = 0

@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1mcc26mljafv"]
+
+[ext_resource type="Script" path="res://UI/game_over.gd" id="1_ifiop"]
+[ext_resource type="Texture2D" uid="uid://bx3nsaxwofxad" path="res://Assets/back.png" id="1_jlu6x"]
+[ext_resource type="Script" path="res://UI/Score.gd" id="2_vdtku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqv1x"]
+bg_color = Color(0.12549, 0.235294, 0.686275, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umewj"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_7cokk"]
+font_size = 40
+
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ifiop")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(552, 983)
+scale = Vector2(0.710937, 1.46484)
+texture = ExtResource("1_jlu6x")
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.251
+anchor_bottom = 0.163
+offset_left = 474.0
+offset_top = 725.0
+offset_right = 344.92
+offset_bottom = 481.04
+theme_override_styles/normal = SubResource("StyleBoxFlat_uqv1x")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.251
+anchor_bottom = 0.163
+offset_left = 474.0
+offset_top = 840.0
+offset_right = 344.92
+offset_bottom = 596.04
+theme_override_styles/normal = SubResource("StyleBoxFlat_uqv1x")
+text = "Quit"
+
+[node name="Game Over" type="Label" parent="."]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 561.0
+offset_right = 687.0
+offset_bottom = 633.0
+text = "GAME OVER!"
+label_settings = SubResource("LabelSettings_umewj")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.159
+anchor_bottom = 0.117
+offset_left = 422.0
+offset_top = 640.0
+offset_right = 509.28
+offset_bottom = 473.36
+text = "Top Score: "
+label_settings = SubResource("LabelSettings_7cokk")
+script = ExtResource("2_vdtku")
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
